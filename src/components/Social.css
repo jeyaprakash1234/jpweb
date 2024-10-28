@@ -1,0 +1,68 @@
+.social {
+   
+    color: #ffffff;
+     padding: 10px 0;
+     position: fixed;
+ 
+    bottom: -40px;
+    width: 100%;
+    padding: 50px;
+  left: 0;
+ 
+    
+  }
+
+  .social-icons {
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .social-icons a {
+    color: #877b91e3;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #dcdcdc; /* Change to your preferred hover color */
+  }
+  @media (min-width: 481px) and (max-width: 768px) {
+    
+  
+    .social-icons a {
+      font-size: 1px;
+      margin: 0 8px;
+      bottom: 20px;
+      flex-direction: column;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (max-width: 768px) {
+    
+  
+    .social-icons a {
+     display: none;
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    
+  
+    .social-icons a {
+      display: none;
+      
+    }
+  }
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    
+    
+    .social-icons a {
+      font-size: 20px;
+      margin: 0 10px;
+    }
+  }

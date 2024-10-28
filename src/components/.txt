@@ -1,0 +1,380 @@
+
+import React , { useEffect, useRef } from 'react';
+import './Home.css';
+import {useSpeechRecognition} from 'react-speech-recognition';
+
+
+const Home = () => {
+    const { transcript, resetTranscript } = useSpeechRecognition();
+
+  // Handle voice commands to navigate to About page
+  React.useEffect(() => {
+    if (transcript.toLowerCase().includes('about me')) {
+      window.location.href = '/about';
+    }
+  }, [transcript]);
+
+  // Function to start voice recognition
+  const startListening = () => {
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new window.SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.onresult = (event) => {
+      const command = event.results[0][0].transcript;
+      if (command.toLowerCase().includes('about me' ,'go to the skill page','go to the contact page')) {
+        window.location.href = '/about';
+      }
+    };
+    recognition.start();
+  };
+  return (
+    <div className="home">
+     
+      <h2 className="title"> I'm Jeyaprakash <br></br> Web and App Developer
+        
+      </h2>
+      <div className="Welcome-container">
+      <div className="robot walking">
+        <div className="head">
+          <div className="eye"></div>
+          <div className="eye"></div>
+        </div>
+        <div className="mouth"></div>
+      </div>
+
+      <div className="home-container">
+      <h1 className="welcome-message">Welcome to Our Website!</h1>
+      <p className="prompt-message">Next, you can say "About Me" to navigate to the About Me page.</p>
+      <button onClick={startListening} className="voice-command-button">
+        Click to Start Voice Command
+      </button>
+    </div>
+    </div>
+    </div>
+    
+  );
+};
+
+export default Home;
+
+
+---------------------------------------------------------
+import React, { useEffect, useState } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import './Home.css';
+
+const Home = () => {
+    
+  const [listening, setListening] = useState(false);
+    const [message, setMessage] = useState("Hey, I'm JP! How can I assist you?");
+    const { transcript, resetTranscript } = useSpeechRecognition();
+
+    const startListening = () => {
+        setListening(true);
+        setMessage("Listening...");
+        SpeechRecognition.startListening({ continuous: true });
+    };
+
+    const stopListening = () => {
+        setListening(false);
+        SpeechRecognition.stopListening();
+        setMessage("Hey, I'm JP! How can I assist you?");
+    };
+
+    const handleCommand = (command) => {
+        setMessage(`You said: "${command}"`);
+        if (command.includes("go about page")) {
+            setMessage("Navigating to the About page...");
+            window.location.href = "/about";
+        } else if (command.includes("go skills page")) {
+            setMessage("Navigating to the Skills page...");
+            window.location.href = "/skills";
+        } else if (command.includes("go contact page")) {
+            setMessage("Navigating to the Contact page...");
+            window.location.href = "/contact";
+        } else {
+            setMessage("Sorry, I can't understand that command. I'm only for this website. I can navigate to the About, Skills, or Contact pages.");
+        }
+    };
+
+    useEffect(() => {
+        handleCommand(transcript);
+    }, [transcript]);
+
+    return (
+        <div className="home-container">
+            
+            <div className="text-container">
+                <h1>Jeyaprakash</h1>
+                <p>Web and App Developer</p>
+            </div>
+            <div className="voice-assistant-container">
+            <div className={`robot ${listening ? 'listening' : ''}`}>
+                <p>{message}</p>
+            </div>
+            <div className="buttons-container">
+                <button className="start-button" onClick={startListening}>
+                    Start Voice Assistant
+                </button>
+                <button className="stop-button" onClick={stopListening}>
+                    Stop Voice Assistant
+                </button>
+            </div>
+        </div>
+        </div>
+    );
+};
+
+export default Home;
+
+
+----====================================================================
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+}
+
+/* .robot-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.robot {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  background-color: #555;
+  border-radius: 10px;
+}
+
+.robot-head {
+  position: absolute;
+  top: -50px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.robot-body {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  background-color: #444;
+}
+
+.robot-arms {
+  position: absolute;
+  top: 50px;
+  width: 120px;
+  height: 20px;
+  background-color: #333;
+}
+
+.robot-legs {
+  position: absolute;
+  bottom: -50px;
+  left: 15px;
+  width: 70px;
+  height: 50px;
+  background-color: #333;
+}
+
+@keyframes robot-walk {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes robot-dance {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-20deg); }
+}
+
+.robot {
+  animation: robot-walk 1s infinite;
+}
+
+.robot:hover {
+  animation: robot-dance 1s infinite;
+} */
+
+.text-container h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.text-container p {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+ .voice-assist-btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ff7e5f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.voice-assist-btn:hover {
+  background-color: #feb47b;
+}
+
+/*.stop-btn {
+  background-color: #ff4d4d;
+}
+
+.stop-btn:hover {
+  background-color: #ff3333;
+} */
+
+/* VoiceAssistant.css */
+
+/* VoiceAssistant.css */
+
+.voice-assistant-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.robot {
+  font-size: 22px;
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  border: 3px solid #5e81ac;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  animation: float 3s ease-in-out infinite;
+  color: #2e3440;
+  font-family: 'Roboto', sans-serif;
+}
+
+.robot.listening {
+  transform: scale(1.1);
+  background-color: #e0f7fa;
+  border-color: #00acc1;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.start-button, .stop-button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+}
+
+.start-button:hover {
+  background-color: #00acc1;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.stop-button:hover {
+  background-color: #e91e63;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.start-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.stop-button {
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+  70% {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px 15px rgba(204, 169, 44, 0);
+  }
+  100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+}
+
+@keyframes float {
+  0% {
+      transform: translatey(0px);
+  }
+  50% {
+      transform: translatey(-10px);
+  }
+  100% {
+      transform: translatey(0px);
+  }
+}
+
+
+
+
+
+
+
+
+
+   const [firstName, setFirstName] = useState('');
+   
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        await axios.post('http://localhost:5000/api/messages', {
+          firstName,
+        
+          email,
+          message
+        });
+        
+        Swal.fire({
+          title: "Good job!",
+          text: "Thank for your Message!",
+          icon: "success"
+        });
+        setTimeout(function() {
+           window.location.reload();
+          }, 2500); // 3000 milliseconds = 3 seconds
+          
+      } catch (error) {
+        console.error('Error adding message:', error);
+      }
+    };
+  

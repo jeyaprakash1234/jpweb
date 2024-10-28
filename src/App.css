@@ -1,0 +1,62 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0D0D17;
+    overflow-x: hidden;
+    color: azure;
+    
+    
+}
+
+
+.app {
+    font-family: Arial, sans-serif;
+  }
+  
+  nav {
+    background-color: #282c34; 
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li {
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    color: #61dafb;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  nav ul li a:hover {
+    color: #21a1f1;
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+    }
+    
+    .hamburger-menu {
+      display: block;
+    }
+  }
+  
+  /* Desktop View */
+  @media (min-width: 769px) {
+    .hamburger-menu {
+      display: none;
+    }
+  }
+  

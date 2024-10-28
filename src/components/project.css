@@ -1,0 +1,145 @@
+
+.recent-projects-container {
+
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #00ffdd;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #b8b8d4;
+  animation: slideInRight 1s ease-in-out;
+  
+}
+
+.projects-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+
+
+
+
+
+
+
+
+
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+ 
+
+ 
+
+
+
+
+
+.next-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  font-family: 'Poppins', sans-serif; /* New font */
+  font-size: 1em; /* Button font size */
+  font-weight: 600; /* Button font weight */
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s, transform 0.2s; /* Added transform for scale effect */
+}
+
+.next-button:hover {
+  background-color: #218838;
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.key-points {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+  text-align: left; /* Align text to the left */
+  margin-top: 20px; /* Adds margin for spacing */
+  animation: fadeIn 1s ease; /* Fade-in animation */
+  font-family: 'Roboto', sans-serif; /* Set the font family */
+   /* Change color if needed */
+}
+
+.key-points li {
+  padding: 8px 0; /* Adds space between items */
+  font-size: 1.1em; /* Slightly increases font size */
+  opacity: 0; /* Start with invisible */
+  transform: translateY(10px); /* Slightly translate down */
+  animation: slideIn 0.5s forwards; /* Slide-in animation */
+}
+
+/* Animation for each list item */
+@keyframes slideIn {
+  0% {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Fade-in effect for the list */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+

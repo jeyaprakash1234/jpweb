@@ -1,0 +1,250 @@
+/* Overall container with fade-in animation */
+.booking-form-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  animation: fadeInContainer 0.8s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fancy heading style with slide-down effect */
+.booking-form-container h2 {
+  font-size: 26px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  animation: slideInFromTop 1s ease-out;
+  background: linear-gradient(90deg, #4caf50, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Input fields with subtle animations */
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeInField 1.2s forwards;
+  animation-delay: 0.3s;
+}
+
+/* Animated label */
+.form-group label {
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 5px;
+  position: relative;
+  animation: slideInLabel 0.8s ease-out;
+}
+
+/* Input styling with animated shadow and smooth transitions */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background: #fff;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+  transform: scale(1.02);
+}
+
+/* Terms and conditions checkbox animation */
+.terms-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeInField 1.5s forwards;
+  animation-delay: 0.5s;
+}
+
+/* Submit button with loading animation */
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #4caf50, #2196f3);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+ 
+}
+
+.submit-button:hover {
+  background: linear-gradient(90deg, #45a049, #1976d2);
+  transform: translateY(-2px);
+}
+
+/* Loading spinner on submit button */
+.submit-button.loading::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Close button */
+.button1[type="button"] {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ff5252;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button1[type="button"]:hover {
+  background: #e53935;
+  transform: scale(1.05);
+}
+
+/* Keyframes for fade-in animations */
+@keyframes fadeInContainer {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInField {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLabel {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+/* Spin animation for loading spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styling for Terms and Conditions label */
+.terms-label span {
+  color: #2196f3;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.terms-label span:hover {
+  color: #1976d2;
+}
+
+/* Modal background */
+.terms-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInModal 0.5s ease-in-out;
+}
+
+/* Modal content */
+.terms-modal-content {
+  background: #221f1f;
+  padding: 20px;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Close modal button */
+.close-modal-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-modal-button:hover {
+  background-color: #1976d2;
+}
+
+/* Fade-in animation for the modal */
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

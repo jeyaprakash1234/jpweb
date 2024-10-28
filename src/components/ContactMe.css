@@ -1,0 +1,189 @@
+/* Container for the entire contact form */
+.contact-container {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  padding: 60px;
+  border-radius: 20px;
+  max-width: 650px;
+  margin: 50px auto;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  animation: swingIn 1.5s ease-in-out;
+
+}
+
+/* Title for the contact form */
+.contact-title {
+  text-align: center;
+  color: #fff;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Styling for the input groups (icons and inputs) */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+  animation: slideIn 0.8s ease-in-out;
+}
+
+/* Icon styles */
+.input-icon {
+  position: absolute;
+  left: 15px;
+  color: #fda085;
+  animation: pulse 2s infinite;
+ 
+  
+}
+
+/* Input field styles */
+.contact-input, .contact-textarea {
+  width: 100%;
+  padding: 15px 20px 15px 55px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.2rem;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Textarea styles */
+.contact-textarea {
+  height: 150px;
+  resize: none;
+}
+
+/* Focus state for inputs and textarea */
+.contact-input:focus, .contact-textarea:focus {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit button styles */
+.contact-button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 30px;
+  background: #ff7e5f;
+  background: linear-gradient(90deg, #ff7e5f 0%, #feb47b 100%);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 5px 10px rgba(255, 126, 95, 0.4);
+}
+
+/* Hover effect for the button */
+.contact-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(255, 126, 95, 0.6);
+}
+
+/* Animations */
+@keyframes swingIn {
+  0% {
+      opacity: 0;
+      transform: rotate(-45deg);
+  }
+  50% {
+      opacity: 0.5;
+      transform: rotate(10deg);
+  }
+  100% {
+      opacity: 1;
+      transform: rotate(0deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateX(-100%);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+}
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .contact-container {
+      padding: 20px 15px;
+      max-width: 90%;
+  }
+
+  .contact-title {
+      font-size: 1.8rem;
+  }
+
+  .contact-input, .contact-textarea {
+      font-size: 0.9rem;
+  }
+
+  .contact-button {
+      font-size: 1rem;
+  }
+
+  .input-icon {
+      font-size:small;
+      left: 3px; /* Slightly smaller for better fit */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+  }
+
+  .contact-input, .contact-textarea {
+      padding: 10px 35px;
+      font-size: 0.85rem;
+  }
+
+  .input-icon {
+      font-size: 1rem;
+      left: 4px; /* Adjust size for smaller screens */
+  }
+
+  .contact-button {
+      padding: 10px 15px;
+      font-size: 0.9rem;
+  }
+}

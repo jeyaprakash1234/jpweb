@@ -1,0 +1,91 @@
+.voice-assistant-container {
+  position: fixed;
+  bottom: 10px;
+  padding: 50px;
+  left: 4%;
+  z-index: 1000;
+  animation: bounce 1s infinite; 
+}
+
+.voice-assistant-button {
+  background-color: #1ad521;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.voice-assistant-button:hover {
+  transform: scale(1.1);
+  
+}
+
+.voice-assistant-button.active {
+  background-color: #f44336;
+  animation: pulse 2s infinite;
+}
+
+.robot-icon {
+  color: #fff;
+  font-size: 24px;
+
+}
+
+  /* Brightness effect on hover */
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(244, 67, 54, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .voice-assistant-button {
+    padding: 20px;
+  }
+  
+
+  .robot-icon {
+    font-size: 20px;
+  }
+
+  .voice-assistant-container {
+    bottom: 15px;
+    left: 95px;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .voice-assistant-button {
+    padding: 10px;
+    
+  }
+
+  .robot-icon {
+    font-size: 18px;
+  }
+
+  .voice-assistant-container {
+    bottom: 0;
+   
+    left: 70%;
+  }
+}
