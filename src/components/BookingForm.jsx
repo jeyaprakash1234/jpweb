@@ -29,7 +29,7 @@ const BookingForm = ({ onClose }) => {
       };
 
       try {
-        const response = await axios.post('http://localhost:5000/api/bookings', bookingData);
+        const response = await axios.post('https://jpweb-backend.onrender.com/api/bookings', bookingData);
         alert('Form submitted successfully!');
 
         // Reset form fields
